@@ -15,7 +15,7 @@
     <div class="container my-5 pb-5">
         <h1>Beca Institucional</h1>
         <div class="d-flex align-items-start bg-body shadow rounded-4 mt-4 p-3">
-            <div class="nav flex-column nav-pills bg-light rounded-4 me-3 p-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <div class="nav flex-column nav-pills beca-institucional bg-light rounded-4 me-3 p-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
               <button class="nav-link text-start active" id="v-pills-preguntas-principales" data-bs-toggle="pill" data-bs-target="#v-pills-preguntas-principales-content" type="button" role="tab" aria-controls="v-pills-preguntas-principales-content" aria-selected="true">Preguntas Principales</button>
               <button class="nav-link text-start" id="v-pills-datos-personales" data-bs-toggle="pill" data-bs-target="#v-pills-datos-personales-content" type="button" role="tab" aria-controls="v-pills-datos-personales-content" aria-selected="false">Datos Personales</button>
               <button class="nav-link text-start" id="v-pills-datos-universitarios" data-bs-toggle="pill" data-bs-target="#v-pills-datos-universitarios-content" type="button" role="tab" aria-controls="v-pills-datos-universitarios-content" aria-selected="false">Datos Universitarios</button>
@@ -29,7 +29,7 @@
                         <form class="row mb-4">
                             <div class="col-12 col-md-6">
                                 <select class="form-select" aria-label="Selecciona hijo postulante">
-                                    <option selected>Selecciona hijo postulante</option>
+                                    <option disabled selected>Selecciona hijo postulante</option>
                                     <option value="1">Nombre Apellido Hijo 1</option>
                                     <option value="2">Nombre Apellido Hijo 2</option>
                                     <option value="3">Nombre Apellido Hijo 3</option>
@@ -107,7 +107,7 @@
                                 <div class="input-group mb-4">
                                     <label for="nombre-institucion" style="width: 100%">
                                         <i class="fas fa-university"></i> Nombre de la Institución Educacional
-                                        <select class="js-example-basic-single" name="universidad" style="width: 100%" id="nombre-institucion" aria-describedby="nombre-institucion" aria-label="Nombre de la Institución Educacional"></select>
+                                        <select class="js-example-basic-single universidad-select" name="universidad" style="width: 100%" aria-describedby="nombre-institucion" aria-label="Nombre de la Institución Educacional"></select>
                                     </label>
                                 </div>
                             </div>
