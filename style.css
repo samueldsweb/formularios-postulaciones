@@ -1,0 +1,20 @@
+body {
+    color: #37474f;
+    font-family: 'Overpass', sans-serif;
+}
+
+.bg-forms-bci {
+    background: linear-gradient(0deg, rgba(158, 182, 210, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.vh-100 {
+    height: 100%;
+}
+
+.nav.flex-column.nav-pills {
+    width: 300px;
+}
+
+.tab-content {
+    width: 100%;
+}

@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Beca Institucional</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="bg-forms-bci vh-100">
+    <div class="container mt-5">
+        <h1>Beca Institucional</h1>
+        <div class="d-flex align-items-start bg-body shadow rounded-4 mt-4 p-3">
+            <div class="nav flex-column nav-pills bg-light rounded-4 me-3 p-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <button class="nav-link text-start active" id="v-pills-preguntas-principales" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Preguntas Principales</button>
+              <button class="nav-link text-start" id="v-pills-datos-personales" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Datos Personales</button>
+              <button class="nav-link text-start" id="v-pills-datos-universitarios" data-bs-toggle="pill" data-bs-target="#v-pills-disabled" type="button" role="tab" aria-controls="v-pills-disabled" aria-selected="false">Datos Universitarios</button>
+              <button class="nav-link text-start" id="v-pills-adjuntar-archivos" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Adjuntar Archivos</button>
+              <button class="nav-link text-start" id="v-pills-datos-economicos" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Datos Económicos</button>
+            </div>
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-preguntas-principales" tabindex="0">
+                    <div class="container pt-4">
+                        <form class="row mb-4">
+                            <div class="col-12 col-md-6">
+                                <select class="form-select" aria-label="Selecciona hijo postulante">
+                                    <option selected>Selecciona hijo postulante</option>
+                                    <option value="1">Nombre Apellido Hijo 1</option>
+                                    <option value="2">Nombre Apellido Hijo 2</option>
+                                    <option value="3">Nombre Apellido Hijo 3</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text" id="hijo-rut"><i class="far fa-address-card"></i></span>
+                                    <input type="text" class="form-control" placeholder="RUT" aria-label="Rut hijo postulante" aria-describedby="hijo-rut">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text" id="hijo-nombre-apellido"><i class="far fa-user"></i></span>
+                                    <input type="text" class="form-control" placeholder="Nombre y Apellido" aria-label="Nombre y apellido del hijo" aria-describedby="hijo-nombre-apellido">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text" id="hijo-fecha-nacimiento"><i class="far fa-calendar-alt"></i></span>
+                                    <input type="text" class="form-control" placeholder="Fecha de Nacimiento" aria-label="Fecha de Nacimiento del hijo" aria-describedby="hijo-fecha-nacimiento">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 align-self-center">
+                                <label class="me-2">¿El postulante tiene gratuidad?</label>
+                                <input type="radio" class="btn-check" name="hijo-gratuidad" id="gratuidad-si" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="gratuidad-si">Si</label>
+                                <input type="radio" class="btn-check" name="hijo-gratuidad" id="gratuidad-no" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="gratuidad-no">No</label>
+                            </div>
+                            <small class="mt-4 text-danger">*Si quieres postular a otro hijo, debes hacer una nueva postulación</small>
+                            <div class="col-12 col-md-12 mt-4 text-end">
+                                <button class="btn btn-primary" type="submit">Siguiente</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+              
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-datos-personales" tabindex="0">
+                    <div class="container pt-4">
+                        <form class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text" id="colaborador-direccion"><i class="fas fa-map-marker-alt"></i></span>
+                                    <input type="text" class="form-control" placeholder="Dirección del Colaborador" aria-label="Dirección del Colaborador" aria-describedby="colaborador-direccion">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text" id="colaborador-celular"><i class="fas fa-mobile-alt"></i></span>
+                                    <input type="text" class="form-control" placeholder="Celular del Colaborador" aria-label="Celular del Colaborador" aria-describedby="colaborador-celular">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <span>Adjunta una foto en alta definición con fondo blanco de el hijo o hija postulante junto con el padre o madre colaborador BCI.</span>
+                                <div class="input-group mb-4">
+                                    <label class="input-group-text" for="foto-colaborador-postulante"><i class="far fa-image"></i></label>
+                                    <input type="file" class="form-control" id="foto-colaborador-postulante">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 mt-4 text-end">
+                                <button class="btn btn-primary" type="submit">Siguiente</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="v-pills-disabled" role="tabpanel" aria-labelledby="v-pills-datos-universitarios" tabindex="0">
+                    <div class="container pt-4">
+                        <form class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text" id="nombre-institucion"><i class="fas fa-university"></i></span>
+                                    <input type="text" class="form-control" placeholder="Nombre de la Institución Educacional" aria-label="Nombre de la Institución Educacional" aria-describedby="nombre-institucion">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text" id="rut-institucion"><i class="far fa-address-card"></i></span>
+                                    <input type="text" class="form-control" placeholder="Rut de la Institución" aria-label="Rut de la Institución" aria-describedby="rut-institucion">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text" id="nombre-carrera"><i class="fas fa-graduation-cap"></i></span>
+                                    <input type="text" class="form-control" placeholder="Nombre de la Carrera" aria-label="Nombre de la Carrera" aria-describedby="nombre-carrera">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text" id="semestres-carrera"><i class="fas fa-graduation-cap"></i></span>
+                                    <input type="number" min="1" max="15" class="form-control" placeholder="Cantidad de semestres de la Carrera" aria-label="Cantidad de semestres de la Carrera" aria-describedby="semestres-carrera">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text" id="notas-alumno"><i class="fas fa-user-graduate"></i></span>
+                                    <input type="number" class="form-control" placeholder="Nota del alumno del año anterior" aria-label="Nota del alumno del año anterior" aria-describedby="notas-alumno">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text" id="arancel-anual"><i class="far fa-credit-card"></i></span>
+                                    <input type="number" min="1" max="99999999" class="form-control" placeholder="Arancel Anual" aria-label="Arancel Anual" aria-describedby="arancel-anual">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text" id="matricula-anual"><i class="far fa-credit-card"></i></span>
+                                    <input type="number" min="1" max="999999" class="form-control" placeholder="Matricula Anual" aria-label="Matricula Anual" aria-describedby="matricula-anual">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text" id="arancel-total"><i class="far fa-credit-card"></i></span>
+                                    <input type="number" min="1" max="99999999" class="form-control" placeholder="Arancel Anual" aria-label="Arancel Anual" aria-describedby="arancel-total">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 align-self-center">
+                                <label class="me-2">¿El postulante tiene CAE?</label>
+                                <input type="radio" class="btn-check" name="postulante-cae" id="cae-si" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="cae-si">Si</label>
+                                <input type="radio" class="btn-check" name="postulante-cae" id="cae-no" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="cae-no">No</label>
+                            </div>
+                            <div class="col-12 col-md-6" id="campo-cae" style="display:none;">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text" id="porcentaje-cae"><i class="far fa-credit-card"></i></span>
+                                    <input type="number" class="form-control" placeholder="¿Qué % de CAE tiene?" aria-label="¿Qué % de CAE tiene?" aria-describedby="porcentaje-cae">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 mt-4 text-end">
+                                <button class="btn btn-primary" type="submit">Siguiente</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-adjuntar-archivos" tabindex="0">
+                    <div class="container pt-4">
+                        <form class="row">
+                            <div class="col-12 col-md-12">
+                                <span>Concentración de notas año académico anterior (en formato PDF)</span>
+                                <div class="input-group mb-4">
+                                    <label class="input-group-text" for="notas-ano-academico"><i class="far fa-file-pdf"></i></label>
+                                    <input type="file" class="form-control" id="notas-ano-academico">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <span>Certificado estudio alumno regular año en curso (en formato PDF)</span>
+                                <div class="input-group mb-4">
+                                    <label class="input-group-text" for="certificado-estudio"><i class="far fa-file-pdf"></i></label>
+                                    <input type="file" class="form-control" id="certificado-estudio">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <span>Certificado pago de matrícula año en curso (en formato PDF)</span>
+                                <div class="input-group mb-4">
+                                    <label class="input-group-text" for="pago-matricula-anual"><i class="far fa-file-pdf"></i></label>
+                                    <input type="file" class="form-control" id="pago-matricula-anual">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <span> Certificado pago arancel anual año en curso (en formato PDF)</span>
+                                <div class="input-group mb-4">
+                                    <label class="input-group-text" for="pago-arancel-anual"><i class="far fa-file-pdf"></i></label>
+                                    <input type="file" class="form-control" id="pago-arancel-anual">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <span> Certificado pago arancel anual año en curso (en formato PDF)</span>
+                                <div class="input-group mb-4">
+                                    <label class="input-group-text" for="pago-arancel-anual"><i class="far fa-file-pdf"></i></label>
+                                    <input type="file" class="form-control" id="pago-arancel-anual">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 mt-4 text-end">
+                                <button class="btn btn-primary" type="submit">Siguiente</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-datos-economicos" tabindex="0">
+                    <div class="container pt-4">
+                        <form class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="input-group mb-1">
+                                    <span class="input-group-text" id="personas-conforman-hogar"><i class="fas fa-users"></i></span>
+                                    <input type="number" class="form-control" placeholder="¿Cuántas personas conforman el hogar?" aria-label="¿Cuántas personas conforman el hogar?" aria-describedby="personas-conforman-hogar">
+                                </div>
+                                <span class="mb-3">(Madre o padre, hijos, cónyuge, incluyéndote. Indica número)</span>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="input-group mb-1">
+                                    <label class="input-group-text" for="personas-aportan-hogar"><i class="fas fa-users"></i></label>
+                                    <select class="form-select" id="personas-aportan-hogar">
+                                      <option selected>¿Cuántas personas aportan económicamente?</option>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <span class="mb-3">(Vivan o no en el hogar, sin incluirte)</span>
+                            </div>
+                            <div id="bloque-personas-aportan" class="col-12 col-md-12 mt-4" style="display: none;">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="input-group my-4">
+                                    <span class="input-group-text" id="rut-conyugue"><i class="far fa-address-card"></i></span>
+                                    <input type="text" class="form-control" placeholder="Rut Cónyuge o Conviviente Civil" aria-label="Rut Cónyuge o Conviviente Civil" aria-describedby="rut-conyugue">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <span>Certificado renta Cónyuge o Conviviente Civil</span>
+                                <div class="input-group mb-4">
+                                    <label class="input-group-text" for="certificado-renta-conyugue"><i class="far fa-file-pdf"></i></label>
+                                    <input type="file" class="form-control" id="certificado-renta-conyugue">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 mb-3">
+                                <hr>
+                                <p class="mb-1 fw-bold">Enfermedades familiares dependientes</p>
+                                <div class="row">
+                                    <div class="col-12 col-md-12 align-self-center mb-4">
+                                        <label class="me-2">¿Alguien del grupo familiar tiene alguna enfermedad crónica?</label>
+                                        <input type="radio" class="btn-check" name="enfermedad-cronica-familiar" id="enfermedad-cronica-si" autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="enfermedad-cronica-si">Si</label>
+                                        <input type="radio" class="btn-check" name="enfermedad-cronica-familiar" id="enfermedad-cronica-no" autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="enfermedad-cronica-no">No</label>
+                                    </div>
+                                    <div id="campo-enfermedad" style="display: none;">
+                                        <div class="col-12 col-md-6 mb-4">
+                                            <div class="input-group">
+                                                <span class="input-group-text" id="personas-aportan-${i}Edad"><i class="far fa-calendar-alt"></i></span>
+                                                <input type="number" class="form-control" placeholder="Indique gasto total por enfermedad crónica" aria-label="Indique gasto total por enfermedad crónica" aria-describedby="personas-aportan-${i}Edad">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-12 mb-4">
+                                            <span>Certificado que acredite enfermedad crónica</span>
+                                            <div class="input-group mb-4">
+                                                <label class="input-group-text" for="certificado-enfermedad-cronica"><i class="far fa-file-pdf"></i></label>
+                                                <input type="file" class="form-control" id="certificado-enfermedad-cronica">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 mb-3">
+                                <hr>
+                                <p class="mb-1 fw-bold">Gastos totales por educación</p>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <div class="input-group mb-1">
+                                    <label class="input-group-text" for="hijos-grupo-familiar"><i class="fas fa-users"></i></label>
+                                    <select class="form-select" id="hijos-grupo-familiar">
+                                      <option selected> ¿Cuántos hijos/as del grupo familiar implican un gasto en educación?</option>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <span class="mb-3">(Sin considerar al hijo/a postulante)</span>
+                            </div>
+                            <div id="bloque-hijos-familia" class="col-12 col-md-12 mt-4" style="display: none;">
+                            </div>
+                            <div class="col-12 col-md-12 mt-4 text-end">
+                                <button class="btn btn-primary" type="submit">Enviar Solicitud</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
