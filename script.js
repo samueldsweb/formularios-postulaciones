@@ -68,88 +68,155 @@ $(document).ready(function () {
   });
 
   $select.select2();
-});
 
-/*
- ** Determinar si el postulante posea o no gratuidad para poder continuar
- */
-document.addEventListener("DOMContentLoaded", function () {
-  const radioGratuidadNo = document.getElementById("gratuidad-no");
-  const radioGratuidadSi = document.getElementById("gratuidad-si");
+  /*
+   ** JSON para Colegios de Chile
+   */
+  var colegios = [
+    { id: 1, text: "Liceo José Victorino Lastarria" },
+    { id: 2, text: "Colegio Nacional de Buenos Aires" },
+    { id: 3, text: "Colegio San Ignacio" },
+    { id: 4, text: "Instituto Nacional General José Miguel Carrera" },
+    { id: 5, text: "Liceo de Aplicación" },
+    { id: 6, text: "Liceo Manuel Barros Borgoño" },
+    { id: 7, text: "Liceo Confederación Suiza" },
+    { id: 8, text: "Colegio Altamira de La Serena" },
+    { id: 9, text: "Liceo N°1 Javiera Carrera" },
+    { id: 10, text: "Colegio Universitario Inglés" },
+    { id: 11, text: "Colegio San Francisco Javier" },
+    { id: 12, text: "Colegio Boston College" },
+    { id: 13, text: "Colegio The Grange School" },
+    { id: 14, text: "Colegio San Agustín" },
+    { id: 15, text: "Colegio Juanita Fernández Solar" },
+  ];
 
-  const mostrarAlert = () => {
-    const alerta = `
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <i class="fas fa-exclamation-circle"></i> No puede continuar con la postulación
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        `;
-    document.getElementById("alert-container").innerHTML = alerta;
-  };
+  $(".colegio-select").each(function () {
+    var $select = $(this);
+    $select.append(
+      '<option disabled selected value="">Seleccione una institución</option>'
+    );
 
-  const quitarAlert = () => {
-    document.getElementById("alert-container").innerHTML = "";
-  };
+    $.each(colegios, function (index, colegio) {
+      $select.append(
+        '<option value="' + colegio.id + '">' + colegio.text + "</option>"
+      );
+    });
 
-  const habilitarTabs = () => {
-    $(".nav-pills.beca-institucional .nav-link").removeClass("disabled");
-    $(".tab-pane").removeClass("disabled").attr("aria-disabled", false);
-  };
-
-  const deshabilitarTabs = () => {
-    $(".nav-pills.beca-institucional .nav-link").addClass("disabled");
-    $(".tab-pane").addClass("disabled").attr("aria-disabled", true);
-  };
-
-  deshabilitarTabs();
-
-  radioGratuidadNo.addEventListener("change", function () {
-    if (radioGratuidadNo.checked) {
-      habilitarTabs();
-      quitarAlert();
-    } else {
-      deshabilitarTabs();
-    }
-  });
-
-  radioGratuidadSi.addEventListener("change", function () {
-    if (radioGratuidadSi.checked) {
-      deshabilitarTabs();
-      mostrarAlert();
-    } else {
-      habilitarTabs();
-    }
+    $select.select2();
   });
 });
 
-/*
- ** Función para mostrar y ocultar el campo CAE
- */
+document.addEventListener('DOMContentLoaded', function() {
+    /*
+    ** Funcion para mostrar u ocultar el campo otro en nivel escolar cursado
+    */
+    const select = document.getElementById('nivel-cursado');
+    const campoOtroNivel = document.getElementById('campo-otro-nivel');
+
+    select.addEventListener('change', function() {
+        if (select.value === '3') {
+            campoOtroNivel.classList.remove('d-none');
+        } else {
+            campoOtroNivel.classList.add('d-none');
+        }
+    });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
-  const radioSi = document.getElementById("cae-si");
-  const radioNo = document.getElementById("cae-no");
-  const campoCae = document.getElementById("campo-cae");
 
-  function toggleCampoCae() {
-    if (radioSi.checked) {
-      campoCae.style.display = "block";
-    } else {
-      campoCae.style.display = "none";
+    /*
+    ** Determinar si el postulante posea o no gratuidad para poder continuar
+    */
+    const radioGratuidadNo = document.getElementById("gratuidad-no");
+    const radioGratuidadSi = document.getElementById("gratuidad-si");
+
+    const mostrarAlert = () => {
+        const alerta = `
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-circle"></i> No puede continuar con la postulación
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            `;
+        document.getElementById("alert-container").innerHTML = alerta;
+    };
+
+    const quitarAlert = () => {
+        document.getElementById("alert-container").innerHTML = "";
+    };
+
+    const habilitarTabs = () => {
+        $(".nav-pills.beca-institucional .nav-link").removeClass("disabled");
+        $(".tab-pane").removeClass("disabled").attr("aria-disabled", false);
+    };
+
+    const deshabilitarTabs = () => {
+        $(".nav-pills.beca-institucional .nav-link").addClass("disabled");
+        $(".tab-pane").addClass("disabled").attr("aria-disabled", true);
+    };
+
+    deshabilitarTabs();
+
+    radioGratuidadNo.addEventListener("change", function () {
+        if (radioGratuidadNo.checked) {
+        habilitarTabs();
+        quitarAlert();
+        } else {
+        deshabilitarTabs();
+        }
+    });
+
+    radioGratuidadSi.addEventListener("change", function () {
+        if (radioGratuidadSi.checked) {
+        deshabilitarTabs();
+        mostrarAlert();
+        } else {
+        habilitarTabs();
+        }
+    });
+    
+
+    /*
+    ** Función para mostrar y ocultar el campo CAE
+    */ 
+    const radioSi = document.getElementById("cae-si");
+    const radioNo = document.getElementById("cae-no");
+    const campoCae = document.getElementById("campo-cae");
+
+    function toggleCampoCae() {
+        if (radioSi.checked) {
+        campoCae.style.display = "block";
+        } else {
+        campoCae.style.display = "none";
+        }
     }
-  }
 
-  radioSi.addEventListener("change", toggleCampoCae);
-  radioNo.addEventListener("change", toggleCampoCae);
+    radioSi.addEventListener("change", toggleCampoCae);
+    radioNo.addEventListener("change", toggleCampoCae);
 
-  toggleCampoCae();
+    toggleCampoCae();
+
+
+    /*
+    ** Función para mostrar y ocultar los campos de enfermedad
+    */
+    const radioSiEnfermedad = document.getElementById("enfermedad-cronica-si");
+    const radioNoEnfermedad = document.getElementById("enfermedad-cronica-no");
+    const campoEnfermedad = document.getElementById("campo-enfermedad");
+
+    function toggleCampoEnfermedad() {
+        campoEnfermedad.style.display = radioSiEnfermedad.checked ? "block" : "none";
+    }
+
+    radioSiEnfermedad.addEventListener("change", toggleCampoEnfermedad);
+    radioNoEnfermedad.addEventListener("change", toggleCampoEnfermedad);
+    toggleCampoEnfermedad();
+    
 });
 
 /*
  ** Función para añadir campos dinámicos por cada aporte familiar seleccionado
  */
-document
-  .getElementById("personas-aportan-hogar")
-  .addEventListener("change", function () {
+document.getElementById("personas-aportan-hogar").addEventListener("change", function () {
     var selectValue = parseInt(this.value);
     var dynamicBlock = document.getElementById("bloque-personas-aportan");
 
@@ -185,31 +252,14 @@ document
     }
 
     dynamicBlock.style.display = "block";
-  });
 
-/*
- ** Función para mostrar y ocultar los campos de enfermedad
- */
-document.addEventListener("DOMContentLoaded", function () {
-  const radioSi = document.getElementById("enfermedad-cronica-si");
-  const radioNo = document.getElementById("enfermedad-cronica-no");
-  const campoEnfermedad = document.getElementById("campo-enfermedad");
-
-  function toggleCampoEnfermedad() {
-    campoEnfermedad.style.display = radioSi.checked ? "block" : "none";
-  }
-
-  radioSi.addEventListener("change", toggleCampoEnfermedad);
-  radioNo.addEventListener("change", toggleCampoEnfermedad);
-  toggleCampoEnfermedad(); // Para asegurarse de que el campo se oculte o muestre según la selección inicial.
 });
+
 
 /*
  ** Función para añadir campos dinámicos por cada hijo en el grupo familiar
  */
-document
-  .getElementById("hijos-grupo-familiar")
-  .addEventListener("change", function () {
+document.getElementById("hijos-grupo-familiar").addEventListener("change", function () {
     var selectValueHijo = parseInt(this.value);
     var dynamicBlockHijo = document.getElementById("bloque-hijos-familia");
 
@@ -245,4 +295,7 @@ document
     }
 
     dynamicBlockHijo.style.display = "block";
-  });
+
+});
+
+
