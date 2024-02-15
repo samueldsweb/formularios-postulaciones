@@ -1,4 +1,56 @@
 /*
+** Determinar si el postulante posea o no gratuidad para poder continuar
+*/
+document.addEventListener('DOMContentLoaded', function() {
+    const radioGratuidadNo = document.getElementById('gratuidad-no');
+    const radioGratuidadSi = document.getElementById('gratuidad-si');
+    
+    const mostrarAlert = () => {
+        const alerta = `
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                No puede continuar con la postulación
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `;
+        document.getElementById('alert-container').innerHTML = alerta;
+    };
+
+    const quitarAlert = () => {
+        document.getElementById('alert-container').innerHTML = '';
+    };
+
+    const habilitarTabs = () => {
+        $('.nav-pills .nav-link').removeClass('disabled');
+        $('.tab-pane').removeClass('disabled').attr('aria-disabled', false);
+    };
+
+    const deshabilitarTabs = () => {
+        $('.nav-pills .nav-link').addClass('disabled');
+        $('.tab-pane').addClass('disabled').attr('aria-disabled', true);
+    };
+
+    deshabilitarTabs();
+
+    radioGratuidadNo.addEventListener('change', function() {
+        if (radioGratuidadNo.checked) {
+            habilitarTabs();
+            quitarAlert();
+        } else {
+            deshabilitarTabs();
+        }
+    });
+
+    radioGratuidadSi.addEventListener('change', function() {
+        if (radioGratuidadSi.checked) {
+            deshabilitarTabs();
+            mostrarAlert();
+        } else {
+            habilitarTabs();
+        }
+    });
+});
+
+/*
 ** Función para mostrar y ocultar el campo CAE
 */
 document.addEventListener('DOMContentLoaded', function () {
@@ -118,3 +170,68 @@ document.getElementById("hijos-grupo-familiar").addEventListener("change", funct
 
     dynamicBlockHijo.style.display = "block";
 });
+
+/*
+** JSON para universidades de Chile
+*/
+$(document).ready(function() {
+    var universities = [
+        {"id": 1, "text": "Universidad de Chile"},
+        {"id": 2, "text": "Pontificia Universidad Católica de Chile"},
+        {"id": 3, "text": "Universidad de Santiago de Chile"},
+        {"id": 4, "text": "Universidad Austral de Chile"},
+        {"id": 5, "text": "Universidad de Concepción"},
+        {"id": 6, "text": "Universidad de Valparaíso"},
+        {"id": 7, "text": "Universidad Adolfo Ibáñez"},
+        {"id": 8, "text": "Universidad Diego Portales"},
+        {"id": 9, "text": "Universidad Católica de Valparaíso"},
+        {"id": 10, "text": "Universidad de La Serena"},
+        {"id": 11, "text": "Universidad de Tarapacá"},
+        {"id": 12, "text": "Universidad de La Frontera"},
+        {"id": 13, "text": "Universidad Católica del Norte"},
+        {"id": 14, "text": "Universidad de Los Lagos"},
+        {"id": 15, "text": "Universidad de Talca"}
+    ];
+
+    var $select = $('#nombre-institucion');
+    $select.append('<option disabled selected value="">Seleccione una institución</option>');
+
+    $.each(universities, function(index, university) {
+        $select.append('<option value="' + university.id + '">' + university.text + '</option>');
+    });
+
+    $select.select2();
+});
+
+/*
+** JSON para carreras de universidades
+*/
+$(document).ready(function() {
+    var carreras = [
+        {"id": 1, "text": "Ingeniería Civil"},
+        {"id": 2, "text": "Medicina"},
+        {"id": 3, "text": "Derecho"},
+        {"id": 4, "text": "Arquitectura"},
+        {"id": 5, "text": "Psicología"},
+        {"id": 6, "text": "Administración de Empresas"},
+        {"id": 7, "text": "Enfermería"},
+        {"id": 8, "text": "Ingeniería Comercial"},
+        {"id": 9, "text": "Pedagogía en Educación Básica"},
+        {"id": 10, "text": "Pedagogía en Educación Parvularia"},
+        {"id": 11, "text": "Contabilidad y Auditoría"},
+        {"id": 12, "text": "Periodismo"},
+        {"id": 13, "text": "Ingeniería Informática"},
+        {"id": 14, "text": "Ingeniería en Construcción"},
+        {"id": 15, "text": "Ingeniería en Alimentos"}
+    ];
+
+    var $select = $('#nombre-carrera');
+    $select.append('<option disabled selected value="">Seleccione una Carrera</option>');
+
+    $.each(carreras, function(index, carrera) {
+        $select.append('<option value="' + carrera.id + '">' + carrera.text + '</option>');
+    });
+
+    $select.select2();
+});
+
